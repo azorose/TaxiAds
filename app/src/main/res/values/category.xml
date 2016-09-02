@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="category_List">
+        <item>Hot</item>
+        <item>Ăn uống</item>
+        <item>Giải trí</item>
+        <item>Mua Sắm</item>
+        <item>Bản đồ</item>
+    </string-array>
+</resources>
