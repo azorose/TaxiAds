@@ -1,15 +1,18 @@
-package vn.manage.taxiads;
+package vn.manage.taxiads.Fragment;
 
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.app.ListFragment;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import java.util.ArrayList;
 
+import vn.manage.taxiads.modules.PlaceAdapter;
+import vn.manage.taxiads.R;
 import vn.manage.taxiads.modules.AsyncRespone;
 import vn.manage.taxiads.modules.MyPlace;
 import vn.manage.taxiads.modules.getNearPlace;
@@ -42,8 +45,13 @@ public class PlacesListFragment extends ListFragment implements AsyncRespone {
     }
 
     @Override
-    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        return inflater.inflate(R.layout.place_list, container, false);
+    }
+
+    @Override
+    public void onViewCreated(View view, Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
 
         if(onCheckPlace != null) {
             setArrayPlaceAdapter();

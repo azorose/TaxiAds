@@ -1,4 +1,4 @@
-package vn.manage.taxiads;
+package vn.manage.taxiads.Fragment;
 
 
 import android.os.Bundle;
@@ -9,6 +9,8 @@ import android.view.View;
 import android.view.ViewGroup;
 //import android.widget.ScrollView;
 import android.widget.TextView;
+
+import vn.manage.taxiads.R;
 
 /**
  * Created by nhapt on 8/30/2016.

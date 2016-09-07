@@ -1,4 +1,4 @@
-package vn.manage.taxiads;
+package vn.manage.taxiads.modules;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -9,6 +9,7 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
+import vn.manage.taxiads.R;
 import vn.manage.taxiads.modules.MyPlace;
 
 /**

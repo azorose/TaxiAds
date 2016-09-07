@@ -12,13 +12,12 @@
         android:layout_height="match_parent"
         android:layout_weight="1"
         android:id="@+id/categoryList"
-        class="vn.manage.taxiads.CategoryFragment"/>
+        class="vn.manage.taxiads.Fragment.CategoryFragment"/>
 
-    <fragment
+    <FrameLayout
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="4"
-        android:id="@+id/mainContent"
-        class="com.google.android.gms.maps.SupportMapFragment"/>
+        android:id="@+id/mainContent" />
 
 </LinearLayout>
