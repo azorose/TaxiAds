@@ -22,10 +22,13 @@ public class CategoryFragment extends ListFragment {
 
     int mCurCheckPosistion = -1;
 
+
+    // Thực thi khi Activity TaxiAds khởi chạy.
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
+        // Tạo list category với danh sách lấy từ String.xml, layout default từ android library.
         ArrayAdapter<String> categoryListView = new ArrayAdapter<>(
                 getActivity(),
                 android.R.layout.simple_list_item_activated_1,
@@ -42,7 +45,6 @@ public class CategoryFragment extends ListFragment {
         } else {
             showListPlaces(0);
         }
-        //*/
     }
 
     @Override
@@ -56,10 +58,11 @@ public class CategoryFragment extends ListFragment {
         showListPlaces(position);
     }
 
+    // Hàm hiện danh sách địa điểm.
     private void showListPlaces(int index) {
 
         if(mCurCheckPosistion != index) {
-
+            // lấy tên của category.
             String catName = (String) getListAdapter().getItem(index);
             FragmentTransaction ft = getFragmentManager().beginTransaction();
 
@@ -72,12 +75,15 @@ public class CategoryFragment extends ListFragment {
                 //ft.replace(R.id.mainContent, nMap);
 
             } else {
-
+                // Khai báo PlaceListFragment và gán vào vị trí selected (index) và tên Category (catName).
                 PlacesListFragment placeId = PlacesListFragment.newInstance(index, catName);
+                // Thay đổi fragment có ID là mainContent thành danh sách địa điểm fragment.
                 ft.replace(R.id.mainContent, placeId);
             }
 
+            // Hiệu ứng thay đổi fragment là Fade.
             ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
+            // Thực thi việc chuyển đổi fragment.
             ft.commit();
 
             mCurCheckPosistion = index;
@@ -87,6 +93,7 @@ public class CategoryFragment extends ListFragment {
         }
     }
 
+    // Clear Back Stack.
     private void clearBackStack() {
         FragmentManager manager = getFragmentManager();
         if (manager.getBackStackEntryCount() > 0) {

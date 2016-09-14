@@ -1,9 +1,7 @@
 package vn.manage.taxiads.Fragment;
 
-import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
@@ -15,11 +13,8 @@ import android.widget.TextView;
 import android.support.design.widget.FloatingActionButton;
 import android.widget.Toast;
 
-
-import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.model.LatLng;
 
-import vn.manage.taxiads.Manifest;
 import vn.manage.taxiads.R;
 
 /**
@@ -27,14 +22,15 @@ import vn.manage.taxiads.R;
  *
  */
 public class ContentFragment extends Fragment implements View.OnClickListener {
-    GoogleMap mMap;
 
-    public static ContentFragment newInstance(int index, int catID, String pName, String pAddr, LatLng ll) {
+    // Khai báo Content Fragment có chứa vị trí nút nhấn (index), địa điểm ID (placeID),
+    // tên địa điểm (pName), địa chỉ điểm đến (pAddr), tham số Lat, Lng (ll).
+    public static ContentFragment newInstance(int index, int placeID, String pName, String pAddr, LatLng ll) {
         ContentFragment cf = new ContentFragment();
 
         Bundle args = new Bundle();
         args.putInt("index", index);
-        args.putInt("catID", catID);
+        args.putInt("catID", placeID);
         args.putString("pName", pName);
         args.putString("pAddr", pAddr);
         args.putDouble("lat", ll.latitude);
@@ -50,9 +46,8 @@ public class ContentFragment extends Fragment implements View.OnClickListener {
     }
 
     public int getCatID() {
-        return getArguments().getInt("catID");
+        return getArguments().getInt("placeID");
     }
-
 
     public String getPlaceName() {
         return getArguments().getString("pName");
@@ -65,19 +60,19 @@ public class ContentFragment extends Fragment implements View.OnClickListener {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        // Khai báo Content Fragment sử dung layout content_detail.xml
+        View view = inflater.inflate(R.layout.content_detail, container, false);
 
-        View view = inflater.inflate(R.layout.content_detail,
-                container, false);
-
-
+        // Set tên, địa chỉ của địa điểm vào ID contentName, contentAddress bên trong content_detail.xml
         TextView pName = (TextView) view.findViewById(R.id.contentName);
         TextView pAddr = (TextView) view.findViewById(R.id.contentAddress);
+
+        // Set detail text.
         TextView pDetail = (TextView) view.findViewById(R.id.contentDetails);
 
         pName.setText(getPlaceName());
         pAddr.setText(getPlaceAddr());
         pDetail.setText("Testing");
-
 
         //click FloatButton
         FloatingActionButton fb = (FloatingActionButton) view.findViewById(R.id.fab);

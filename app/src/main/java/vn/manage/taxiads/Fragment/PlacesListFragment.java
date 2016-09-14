@@ -9,8 +9,6 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
-import com.google.android.gms.maps.model.LatLng;
-
 import java.util.ArrayList;
 
 import vn.manage.taxiads.modules.PlaceAdapter;
@@ -41,7 +39,6 @@ public class PlacesListFragment extends ListFragment implements AsyncRespone {
     }
 
     public String getShownString() {
-
         // Trả về tên của category.
         return getArguments().getString("catName");
     }
