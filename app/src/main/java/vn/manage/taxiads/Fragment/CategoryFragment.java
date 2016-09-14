@@ -68,8 +68,8 @@ public class CategoryFragment extends ListFragment {
 
             if (Objects.equals(catName, "Bản đồ")) {
 
-                MapsFragment nMap = MapsFragment.newInstance();
-                ft.replace(R.id.mainContent, nMap);
+                //MapsFragment nMap = MapsFragment.newInstance();
+                //ft.replace(R.id.mainContent, nMap);
 
             } else {
 

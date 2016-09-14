@@ -9,6 +9,8 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import com.google.android.gms.maps.model.LatLng;
+
 import java.util.ArrayList;
 
 import vn.manage.taxiads.modules.PlaceAdapter;
@@ -101,7 +103,7 @@ public class PlacesListFragment extends ListFragment implements AsyncRespone {
 
         MyPlace myPlace = (MyPlace) getListAdapter().getItem(position);
 
-        ContentFragment content = ContentFragment.newInstance(position, myPlace.getPlaceID(), myPlace.getTitle(), myPlace.getAddress());
+        ContentFragment content = ContentFragment.newInstance(position, myPlace.getPlaceID(), myPlace.getTitle(), myPlace.getAddress(), myPlace.getLatLng());
         FragmentTransaction ft = getFragmentManager().beginTransaction();
 
         ft.replace(R.id.mainContent, content, "Detail Fragment");

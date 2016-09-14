@@ -24,7 +24,14 @@ public class MapsFragment extends Fragment implements OnMapReadyCallback {
 
     GoogleMap mMap;
 
-    public static MapsFragment newInstance(){
+    public static MapsFragment newInstance(LatLng ll){
+        MapsFragment mm = new MapsFragment();
+        Bundle args = new Bundle();
+
+        args.putDouble("lat", ll.latitude);
+        args.putDouble("long",ll.latitude);
+
+        mm.setArguments(args);
         return new MapsFragment();
     }
 
@@ -47,7 +54,7 @@ public class MapsFragment extends Fragment implements OnMapReadyCallback {
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
         LatLng ll = new LatLng(10.823360, 106.627031);
-        CameraUpdate cUp = CameraUpdateFactory.newLatLngZoom(ll, 10);
+        CameraUpdate cUp = CameraUpdateFactory.newLatLngZoom(ll, 14);
         mMap.animateCamera(cUp);
     }
 }
