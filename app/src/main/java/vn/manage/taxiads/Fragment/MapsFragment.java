@@ -3,6 +3,7 @@ package vn.manage.taxiads.Fragment;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -29,10 +30,18 @@ public class MapsFragment extends Fragment implements OnMapReadyCallback {
         Bundle args = new Bundle();
 
         args.putDouble("lat", ll.latitude);
-        args.putDouble("long",ll.latitude);
+        args.putDouble("long",ll.longitude);
 
         mm.setArguments(args);
-        return new MapsFragment();
+        return mm;
+    }
+
+    private double getLat(){
+        return getArguments().getDouble("lat");
+    }
+
+    private double getLng(){
+        return getArguments().getDouble("long");
     }
 
     @Nullable
@@ -47,13 +56,14 @@ public class MapsFragment extends Fragment implements OnMapReadyCallback {
 
         SupportMapFragment mapFragment = (SupportMapFragment) getChildFragmentManager().findFragmentById(R.id.mapFrag);
         mapFragment.getMapAsync(this);
-
     }
 
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
-        LatLng ll = new LatLng(10.823360, 106.627031);
+        LatLng ll = new LatLng(getLat(), getLng());
+        Log.d("Latitude vars: ", String.valueOf(getLat()));
+        Log.d("Longtitue vars:", String.valueOf(getLng()));
         CameraUpdate cUp = CameraUpdateFactory.newLatLngZoom(ll, 14);
         mMap.animateCamera(cUp);
     }

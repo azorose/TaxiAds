@@ -34,7 +34,7 @@ public class ContentFragment extends Fragment implements View.OnClickListener {
         args.putString("pName", pName);
         args.putString("pAddr", pAddr);
         args.putDouble("lat", ll.latitude);
-        args.putDouble("long",ll.latitude);
+        args.putDouble("long",ll.longitude);
 
         cf.setArguments(args);
 
@@ -72,7 +72,7 @@ public class ContentFragment extends Fragment implements View.OnClickListener {
 
         pName.setText(getPlaceName());
         pAddr.setText(getPlaceAddr());
-        pDetail.setText("Testing");
+        pDetail.setText(String.valueOf(getArguments().getDouble("lat")));
 
         //click FloatButton
         FloatingActionButton fb = (FloatingActionButton) view.findViewById(R.id.fab);

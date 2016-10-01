@@ -34,7 +34,6 @@ public class PlacesListFragment extends ListFragment implements AsyncRespone {
         args.putString("catName", catName);
 
         cf.setArguments(args);
-
         return cf;
     }
 
@@ -67,7 +66,6 @@ public class PlacesListFragment extends ListFragment implements AsyncRespone {
                 urlAddr = getString(R.string.get_place_url) + "?cat=all&hot=1";
 
                 temp.execute(urlAddr);
-
                 break;
 
             case "Bản đồ":
@@ -87,7 +85,6 @@ public class PlacesListFragment extends ListFragment implements AsyncRespone {
 
         onCheckPlace = locationList;
         setArrayPlaceAdapter();
-
     }
 
     private void setArrayPlaceAdapter() {

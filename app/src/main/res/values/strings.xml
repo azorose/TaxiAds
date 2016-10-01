@@ -4,6 +4,5 @@
     <string name="name_of_place">Name of place</string>
     <string name="address_of_place">Address of Place</string>
     <string name="get_place_url">http://demo.manage.vn/locationTest/getPlaceNew.php</string>
-    <string name="gg_api">AIzaSyA9JbI2gi2r1y9JuOrn49wTwFBIm-tnry4</string>
     <string name="logo">Logo</string>
 </resources>
